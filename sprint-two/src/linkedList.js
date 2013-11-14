@@ -6,7 +6,8 @@ var makeLinkedList = function(){
 
   list.addToTail = function(value){
     var node = makeNode(value);
-    if (list.head === null) { list.head = node}
+    if (list.head === null) { list.head = node; }
+    if (list.tail === null) { list.tail = node; }
   };
 
   list.removeHead = function(){
