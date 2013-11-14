@@ -3,11 +3,12 @@ var makeLinkedList = function(){
   var list = {};
   list.head = null;
   list.tail = null;
+  list.index = 0;
 
   list.addToTail = function(value){
     var node = makeNode(value);
     if (list.head === null) { list.head = node; }
-    if (list.tail === null) { list.tail = node; }
+    list.tail = node;
   };
 
   list.removeHead = function(){

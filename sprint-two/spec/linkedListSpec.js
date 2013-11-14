@@ -18,14 +18,22 @@ describe("linkedList", function() {
 
   // add more tests here to test the functionality of linkedList
   it("head should point to node after calling addToTail once", function() {
-    var node = makeNode('node')
+    var node = makeNode('node');
     linkedList.addToTail('node');
     expect(node).toEqual(linkedList.head);
   });
 
   it("tail should point to node after calling addToTail once", function() {
-    var node = makeNode('node')
+    var node = makeNode('node');
     linkedList.addToTail('node');
+    expect(node).toEqual(linkedList.tail);
+  });
+
+  it("tail should point to second node after calling addToTail twice", function() {
+    var node = makeNode('node2');
+    linkedList.addToTail('node1');
+    linkedList.addToTail('node2');
+
     expect(node).toEqual(linkedList.tail);
   });
 });
