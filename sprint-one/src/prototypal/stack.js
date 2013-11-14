@@ -1,6 +1,6 @@
 var makeStack = function() {
   // Hey! Copy your code from src/functional-shared/stack.js and paste it here
-  var instance = {};
+  var instance = Object.create(stackMethods);
 
   // Use an object with numeric keys to store values
   instance.storage = {};
@@ -30,4 +30,3 @@ var stackMethods = {
   }
 };
 
-var stackMethods = {};
