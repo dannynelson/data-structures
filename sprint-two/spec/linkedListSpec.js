@@ -17,4 +17,9 @@ describe("linkedList", function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it("head should point to the first node instance", function() {
+    var node = makeNode('node')
+    linkedList.addToTail('node');
+    expect(node).toEqual(linkedList.head);
+  });
 });
