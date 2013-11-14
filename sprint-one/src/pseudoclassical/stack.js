@@ -1,31 +1,21 @@
 var Stack = function() {
-  // Hey! Copy your code from src/prototypal/stack.js and paste it here
 
   // Use an object with numeric keys to store values
-  var storage = {};
-  var length = 0; // Hint: set an initial value here
-
-  // this.push = function(value){
-  //   this[length] = value;
-  //   length++;
-  // },
-
-
+  this.storage = {};
+  this.length = 0; // Hint: set an initial value here
 
 };
 
 Stack.prototype.push = function(value){
-  this[length] = value;
-  length++;
+  this[this.length] = value;
+  this.length++;
 };
 
 Stack.prototype.pop = function(){
-    if (length) length--;
-    return this[length];
-  };
+  if (this.length) this.length--;
+  return this[this.length];
+};
 
 Stack.prototype.size = function(){
-    return length;
-  };
-
-console.log(Object.keys(Stack.prototype).length);
+  return this.length;
+};
