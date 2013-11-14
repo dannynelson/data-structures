@@ -6,11 +6,6 @@ var makeStack = function() {
   instance.storage = {};
   instance.length = 0; // Hint: set an initial value here
 
-  // Implement the methods below
-  instance.push = stackMethods.push;
-  instance.pop = stackMethods.pop;
-  instance.size = stackMethods.size;
-
   return instance;
 };
 
