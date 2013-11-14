@@ -5,19 +5,27 @@ var Stack = function() {
   var storage = {};
   var length = 0; // Hint: set an initial value here
 
-  this.push = function(value){
-    this[length] = value;
-    length++;
-  },
+  // this.push = function(value){
+  //   this[length] = value;
+  //   length++;
+  // },
 
-  this.pop = function(){
-    if (length) length--;
-    return this[length];
-  },
 
-  this.size = function(){
-    return length;
-  }
 
 };
 
+Stack.prototype.push = function(value){
+  this[length] = value;
+  length++;
+};
+
+Stack.prototype.pop = function(){
+    if (length) length--;
+    return this[length];
+  };
+
+Stack.prototype.size = function(){
+    return length;
+  };
+
+console.log(Object.keys(Stack.prototype).length);
