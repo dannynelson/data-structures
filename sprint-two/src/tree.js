@@ -3,6 +3,10 @@ var makeTree = function(){
   newTree.value = undefined;
   newTree.children = undefined;
 
+  newTree.addChild = treeMethods.addChild;
+  newTree.contains = treeMethods.contains;
+
+
   return newTree;
 };
 
