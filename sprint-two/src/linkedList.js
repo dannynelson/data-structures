@@ -17,7 +17,12 @@ var makeLinkedList = function(){
     return result;
   };
 
-  list.contains = function(){
+  list.contains = function(value){
+    var checkNext = function(node) {
+      if (node.value === value) return true;
+      return checkNext(node.next);
+    }
+    return checkNext(list.head);
   };
 
   return list;

@@ -64,5 +64,12 @@ describe("linkedList", function() {
     expect(linkedList.removeHead()).toEqual(node1);
   });
 
+  it("should find existing value in linked list", function() {
+    linkedList.addToTail('node1');
+    linkedList.addToTail('node2');
+    linkedList.addToTail('node3');
+    expect(linkedList.contains('node2')).toEqual(true);
+  });
+
   // next test should return the removeHead value
 });
