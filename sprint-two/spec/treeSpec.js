@@ -28,4 +28,17 @@ describe("tree", function() {
     expect(tree.children.length).toEqual(2);
   });
 
+  it("should be able to create grandchildren", function() {
+    tree.addChild('childNode1');
+    tree.children[0].addChild('grandchildNode1');
+    expect(tree.children[0].children[0].value).toEqual('grandchildNode1');
+  });
+
+  it("should return true if value is found in target or descendant node", function() {
+    tree.addChild('childNode1');
+    tree.addChild('childNode2');
+    tree.children[0].addChild('grandchildNode1');
+    tree.children[0].addChild('grandchildNode2');
+    expect(tree.contains('grandchildNode2')).toEqual(true);
+  });
 });
