@@ -16,12 +16,17 @@ treeMethods.addChild = function(value){
   this.children.push(makeTree(value));
 };
 
-treeMethods.contains = function(value){
+treeMethods.contains = function(value, startNode){
+  startNode = startNode || this; // defaults to parent node if user does not specify startNode
+  var found = false;
   var searchTree = function(node) {
-    if (node.value = value) { return true; }
-    for (var i = 0; i < node.children.length; i++) {
-      return searchTree(node.children[i]);
+    if (node.value === value) found = true;
+    if (node.children.length) {
+      for (var i = 0; i < node.children.length; i++) {
+        searchTree(node.children[i]);
+      }
     }
-  }
-  return searchTree(this);
+  };
+  searchTree(startNode);
+  return found;
 };

@@ -41,4 +41,13 @@ describe("tree", function() {
     tree.children[0].addChild('grandchildNode2');
     expect(tree.contains('grandchildNode2')).toEqual(true);
   });
+
+  it("should return false if value does not exist in target or descendant node", function() {
+    tree.addChild('childNode1');
+    tree.addChild('childNode2');
+    tree.children[0].addChild('grandchildNode1');
+    tree.children[0].addChild('grandchildNode2');
+    expect(tree.contains('grandchildNode5')).toEqual(false);
+  });
 });
+
