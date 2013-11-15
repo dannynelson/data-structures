@@ -71,5 +71,11 @@ describe("linkedList", function() {
     expect(linkedList.contains('node2')).toEqual(true);
   });
 
-  // next test should return the removeHead value
+  it("should return false if value is not found in linked list", function() {
+    linkedList.addToTail('node1');
+    linkedList.addToTail('node2');
+    linkedList.addToTail('node3');
+    expect(linkedList.contains('node5')).toEqual(false);
+  });
+
 });

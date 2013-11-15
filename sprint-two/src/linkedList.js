@@ -20,6 +20,7 @@ var makeLinkedList = function(){
   list.contains = function(value){
     var checkNext = function(node) {
       if (node.value === value) return true;
+      if (node.next === null) return false;
       return checkNext(node.next);
     }
     return checkNext(list.head);
