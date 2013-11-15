@@ -11,6 +11,11 @@ describe("set", function() {
     expect(set.remove).toEqual(jasmine.any(Function));
   });
 
+  it("should be able to create a set with a name", function() {
+    var setA = makeSet('setA');
+    expect(setA.name).toEqual('setA');
+  });
+
   it("should add value to empty set", function() {
     var setA = makeSet();
     setA.add('xyz');
