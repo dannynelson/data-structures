@@ -17,9 +17,15 @@ describe("tree", function() {
     expect(tree.value).toEqual('parentNode');
   });
 
-  it("should be able to add a child and parent should be able to reference it", function() {
+  it("should be able to add a child", function() {
     tree.addChild('childNode');
-    expect(tree.children.value).toEqual('childNode');
+    expect(tree.children[0].value).toEqual('childNode');
+  });
+
+  it("parent should be able to add multiple children", function() {
+    tree.addChild('childNode1');
+    tree.addChild('childNode2');
+    expect(tree.children.length).toEqual(2);
   });
 
 });
