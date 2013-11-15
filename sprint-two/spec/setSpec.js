@@ -25,6 +25,14 @@ describe("set", function() {
     expect(Object.keys(setA._storage).length).toEqual(2);
   });
 
+  it("should remove items from the set", function() {
+    var setA = makeSet();
+    setA.add('xyz');
+    setA.add('abc');
+    setA.remove('xyz');
+    expect(setA._storage['xyz']).toEqual(undefined);
+  });
+
 
   // it("should add a value to the set", function() {
   //   setA();
