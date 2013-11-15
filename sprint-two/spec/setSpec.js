@@ -10,4 +10,18 @@ describe("set", function() {
     expect(set.contains).toEqual(jasmine.any(Function));
     expect(set.remove).toEqual(jasmine.any(Function));
   });
+
+  it("should add value to empty set", function() {
+    var setA = makeSet();
+    setA.add('xyz');
+    expect(Object.keys(setA._storage)).toEqual(['xyz']);
+  });
+
+  // it("should add a value to the set", function() {
+  //   setA();
+  //   expect(set.setA.add('value1','setA')).toEqual();
+  //   expect(set.contains).toEqual(jasmine.any(Function));
+  //   expect(set.remove).toEqual(jasmine.any(Function));
+  // });
+
 });
