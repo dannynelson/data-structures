@@ -12,7 +12,9 @@ var makeTree = function(value){
 
 var treeMethods = {};
 
-treeMethods.addChild = function(){
+treeMethods.addChild = function(value){
+  this.children = makeTree(value);
+  console.log(this);
 };
 
 treeMethods.contains = function(){
