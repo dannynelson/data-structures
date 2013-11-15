@@ -58,5 +58,11 @@ describe("linkedList", function() {
     expect(node2.value).toEqual(linkedList.head.value);
   });
 
+  it("should return node when calling removeHead", function() {
+    var node1 = makeNode('node1');
+    linkedList.addToTail('node1');
+    expect(linkedList.removeHead()).toEqual(node1);
+  });
+
   // next test should return the removeHead value
 });
