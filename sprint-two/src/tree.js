@@ -1,6 +1,6 @@
-var makeTree = function(){
+var makeTree = function(value){
   var newTree = {};
-  newTree.value = undefined;
+  newTree.value = value;
   newTree.children = undefined;
 
   newTree.addChild = treeMethods.addChild;
