@@ -49,14 +49,14 @@ describe("linkedList", function() {
     expect(linkedList.head.next.next).toEqual(linkedList.tail);
   });
 
-  // it("head should point to second node after adding three nodes, removing one", function() {
-  //   var node = makeNode('node2');
-  //   linkedList.addToTail('node1');
-  //   linkedList.addToTail('node2');
-  //   linkedList.addToTail('node3');
-  //   linkedList.removeHead();
-  //   expect(node2).toEqual(linkedList.head);
-  // });
+  it("head should point to second node after adding three nodes, removing one", function() {
+    var node2 = makeNode('node2');
+    linkedList.addToTail('node1');
+    linkedList.addToTail('node2');
+    linkedList.addToTail('node3');
+    linkedList.removeHead();
+    expect(node2.value).toEqual(linkedList.head.value);
+  });
 
   // next test should return the removeHead value
 });
