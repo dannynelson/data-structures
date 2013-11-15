@@ -33,6 +33,13 @@ describe("set", function() {
     expect(setA._storage['xyz']).toEqual(undefined);
   });
 
+  it("should return true if item is found in set", function() {
+    var setA = makeSet();
+    setA.add('xyz');
+    setA.add('abc');
+    expect(setA.contains('xyz')).toEqual(true);
+  });
+
 
   // it("should add a value to the set", function() {
   //   setA();
