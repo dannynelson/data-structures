@@ -40,7 +40,12 @@ describe("set", function() {
     expect(setA.contains('xyz')).toEqual(true);
   });
 
-
+  it("should return false if item is not in set", function() {
+    var setA = makeSet();
+    setA.add('xyz');
+    setA.add('abc');
+    expect(setA.contains('xyz')).toEqual(true);
+  });
   // it("should add a value to the set", function() {
   //   setA();
   //   expect(set.setA.add('value1','setA')).toEqual();
