@@ -42,7 +42,7 @@ describe("linkedList", function() {
     expect(linkedList.head.next).toEqual(linkedList.tail);
   });
 
-  it("head should point to next node when there are three nodes", function() {
+  it("second node should point to tail when there are three nodes created", function() {
     linkedList.addToTail('node1');
     linkedList.addToTail('node2');
     linkedList.addToTail('node3');
