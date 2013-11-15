@@ -8,7 +8,8 @@ var makeSet = function(name){
 var setPrototype = {};
 
 setPrototype.add = function(value){
-  this._storage[value] = true; // {this.name: true};
+  if (this._storage[value] === undefined) this._storage[value] = {};
+  this._storage[value][this.name] = true;
 };
 
 setPrototype.contains = function(value){
@@ -21,3 +22,4 @@ setPrototype.remove = function(value){
 };
 
 setPrototype._storage = {};
+

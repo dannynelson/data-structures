@@ -17,13 +17,13 @@ describe("set", function() {
   });
 
   it("should add value to empty set", function() {
-    var setA = makeSet();
+    var setA = makeSet('setA');
     setA.add('xyz');
     expect(Object.keys(setA._storage)).toEqual(['xyz']);
   });
 
   it("should not make duplicates within a set", function() {
-    var setA = makeSet();
+    var setA = makeSet('setA');
     setA.add('xyz');
     setA.add('abc');
     setA.add('xyz');
@@ -31,7 +31,7 @@ describe("set", function() {
   });
 
   it("should remove items from the set", function() {
-    var setA = makeSet();
+    var setA = makeSet('setA');
     setA.add('xyz');
     setA.add('abc');
     setA.remove('xyz');
@@ -39,23 +39,26 @@ describe("set", function() {
   });
 
   it("should return true if item is found in set", function() {
-    var setA = makeSet();
+    var setA = makeSet('setA');
     setA.add('xyz');
     setA.add('abc');
     expect(setA.contains('xyz')).toEqual(true);
   });
 
   it("should return false if item is not in set", function() {
-    var setA = makeSet();
+    var setA = makeSet('setA');
     setA.add('xyz');
     setA.add('abc');
     expect(setA.contains('xyz')).toEqual(true);
   });
-  // it("should add a value to the set", function() {
-  //   setA();
-  //   expect(set.setA.add('value1','setA')).toEqual();
-  //   expect(set.contains).toEqual(jasmine.any(Function));
-  //   expect(set.remove).toEqual(jasmine.any(Function));
-  // });
+
+  it("shared values in different sets should not create duplicates", function() {
+    var setA = makeSet('setA');
+    var setB = makeSet('setB');
+    setA.add('xyz');
+    setA.add('abc');
+    setB.add('xyz');
+    expect(Object.keys(setPrototype._storage).length).toEqual(2);
+  });
 
 });
