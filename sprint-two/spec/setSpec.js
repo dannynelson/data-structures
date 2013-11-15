@@ -17,6 +17,15 @@ describe("set", function() {
     expect(Object.keys(setA._storage)).toEqual(['xyz']);
   });
 
+  it("should not make duplicates within a set", function() {
+    var setA = makeSet();
+    setA.add('xyz');
+    setA.add('abc');
+    setA.add('xyz');
+    expect(Object.keys(setA._storage).length).toEqual(2);
+  });
+
+
   // it("should add a value to the set", function() {
   //   setA();
   //   expect(set.setA.add('value1','setA')).toEqual();
