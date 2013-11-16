@@ -54,5 +54,24 @@ describe("tree", function() {
     tree.addChild('childNode1');
     expect(tree.children[0].parent.value).toEqual('parentNode');
   });
+
+  it("should disassociate a node from tree", function() {
+    tree.addChild('childNode1');
+    tree.addChild('childNode2');
+    tree.children[0].addChild('grandchildNode1');
+    tree.children[0].addChild('grandchildNode2');
+    var newTree = tree.children[0].removeFromParent();
+    expect(tree.children.length).toEqual(1);
+    expect(newTree.parent).toEqual(null);
+  });
+
+  it("should return undefined if no parent exists when removing from parent", function() {
+    tree.addChild('childNode1');
+    tree.addChild('childNode2');
+    tree.children[0].addChild('grandchildNode1');
+    tree.children[0].addChild('grandchildNode2');
+    expect(tree.removeFromParent()).toEqual(undefined);
+  });
+
 });
 
