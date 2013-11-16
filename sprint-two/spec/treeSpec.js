@@ -49,5 +49,10 @@ describe("tree", function() {
     tree.children[0].addChild('grandchildNode2');
     expect(tree.contains('grandchildNode5')).toEqual(false);
   });
+
+  it("should reference parent node", function() {
+    tree.addChild('childNode1');
+    expect(tree.children[0].parent.value).toEqual('parentNode');
+  });
 });
 
