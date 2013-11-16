@@ -2,7 +2,7 @@ describe("linkedList", function() {
   var linkedList;
 
   beforeEach(function() {
-    linkedList = makeLinkedList();
+    linkedList = new MakeLinkedList();
   });
 
   it("should have a head and tail", function() {

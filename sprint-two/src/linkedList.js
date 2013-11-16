@@ -1,51 +1,48 @@
 // Note: don't use an array to do this.
-var makeLinkedList = function(){
-  var list = {};
-  list.head = null;
-  list.tail = null;
+var MakeLinkedList = function(){
+  this.head = null;
+  this.tail = null;
+};
 
-  list.addToHead = function(value){
-    var newNode = makeNode(value);
-    if (!list.tail) list.tail = newNode;
-    if (list.head) {
-      list.head.prev = newNode;
-      newNode.next = list.head;
-    }
-    list.head = newNode;
+MakeLinkedList.prototype.addToHead = function(value){
+  var newNode = makeNode(value);
+  if (!this.tail) this.tail = newNode;
+  if (this.head) {
+    this.head.prev = newNode;
+    newNode.next = this.head;
   }
+  this.head = newNode;
+}
 
-  list.addToTail = function(value){
-    var newNode = makeNode(value);
-    if (!list.head) { list.head = newNode; }
-    if (list.tail) {
-      newNode.prev = list.tail;
-      list.tail.next = newNode;
-    }
-    list.tail = newNode;
-  };
-
-  list.removeHead = function(){
-    var result = list.head;
-    list.head = list.head.next;
-    return result;
-  };
-
-  list.removeTail = function(){
-    var result = list.tail;
-    list.tail = list.tail.prev;
-    return result;
+MakeLinkedList.prototype.addToTail = function(value){
+  var newNode = makeNode(value);
+  if (!this.head) { this.head = newNode; }
+  if (this.tail) {
+    newNode.prev = this.tail;
+    this.tail.next = newNode;
   }
+  this.tail = newNode;
+};
 
-  list.contains = function(value){
-    var checkNext = function(node) {
-      if (node.value === value) return true;
-      if (node.next === null) return false;
-      return checkNext(node.next);
-    }
-    return checkNext(list.head);
-  };
+MakeLinkedList.prototype.removeHead = function(){
+  var result = this.head;
+  this.head = this.head.next;
+  return result;
+};
 
-  return list;
+MakeLinkedList.prototype.removeTail = function(){
+  var result = this.tail;
+  this.tail = this.tail.prev;
+  return result;
+}
+
+MakeLinkedList.prototype.contains = function(value){
+  var checkNext = function(node) {
+    if (node.value === value) return true;
+    if (node.next === null) return false;
+    return checkNext(node.next);
+  }
+  return checkNext(this.head);
 };
 
 var makeNode = function(value){
