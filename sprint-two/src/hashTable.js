@@ -28,12 +28,21 @@ HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
   var result = this._storage.get(i);
   if (!result) return undefined;
-  for (var i = 0; i < result.length; i++) {
-    if (result[i][0] === k) return result[i][1];
+  for (var j = 0; j < result.length; j++) {
+    if (result[j][0] === k) return result[j][1];
   }
 };
 
-HashTable.prototype.remove = function(){
+HashTable.prototype.remove = function(k){
+  var i = getIndexBelowMaxForKey(k, this._limit);
+  var result = this._storage.get(i);
+  var indexMatch;
+  if (!result) return undefined;
+  for (var j = 0; j < result.length; j++) {
+    if (result[j][0] === k) indexMatch = j;
+  }
+  result.splice(indexMatch, 1);
+  this._storage.set(i, result);
 };
 
 // NOTE: For this code to work, you will NEED the code from hashTableHelpers.js
