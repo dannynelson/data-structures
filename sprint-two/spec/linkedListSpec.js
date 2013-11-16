@@ -30,10 +30,9 @@ describe("linkedList", function() {
   });
 
   it("tail should point to second node after calling addToTail twice", function() {
-    var node = makeNode('node2');
     linkedList.addToTail('node1');
     linkedList.addToTail('node2');
-    expect(node).toEqual(linkedList.tail);
+    expect(linkedList.tail.value).toEqual('node2');
   });
 
   it("head should point to next node when there are two nodes", function() {
@@ -88,13 +87,13 @@ describe("linkedList", function() {
     expect(linkedList.head.value).toEqual('node0');
   });
 
-  // it("should be able to remove tail", function() {
-  //   linkedList.addToTail('node1');
-  //   linkedList.addToTail('node2');
-  //   linkedList.addToTail('node3');
-  //   linkedList.removeTail();
-  //   expect(linkedList.tail).toEqual('node2');
-  // });
+  it("should be able to remove tail", function() {
+    linkedList.addToTail('node1');
+    linkedList.addToTail('node2');
+    linkedList.addToTail('node3');
+    linkedList.removeTail();
+    expect(linkedList.tail.value).toEqual('node2');
+  });
 
   // nodes should have a link to the next node and the previous node
 
