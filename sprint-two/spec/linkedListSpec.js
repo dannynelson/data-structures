@@ -78,4 +78,24 @@ describe("linkedList", function() {
     expect(linkedList.contains('node5')).toEqual(false);
   });
 
+  // Beginning of doubly linked list tests
+
+  it("should be able to add to head", function() {
+    linkedList.addToTail('node1');
+    linkedList.addToTail('node2');
+    linkedList.addToTail('node3');
+    linkedList.addToHead('node0');
+    expect(linkedList.head.value).toEqual('node0');
+  });
+
+  // it("should be able to remove tail", function() {
+  //   linkedList.addToTail('node1');
+  //   linkedList.addToTail('node2');
+  //   linkedList.addToTail('node3');
+  //   linkedList.removeTail();
+  //   expect(linkedList.tail).toEqual('node2');
+  // });
+
+  // nodes should have a link to the next node and the previous node
+
 });
